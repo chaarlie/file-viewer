@@ -1,0 +1,54 @@
+version: "3.8"
+services:
+  postgresdb:
+    container_name: postgres
+    image: postgres:alpine
+    ports:
+      - $DB_PORT:$DB_PORT
+    volumes:
+      - data:/data/db
+    environment:
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DB_NAME
+
+  api:
+    container_name: api
+    restart: always
+    build: ./server
+    command:  sh -c "apk add --no-cache ghostscript && apk add --no-cache graphicsmagick && cd ./server && npm run dev"
+    ports:
+      - $SERVER_PORT:$SERVER_PORT
+    environment:
+      - SERVER_PORT=$SERVER_PORT
+      - CLIENT_HOST_URL=$CLIENT_HOST_URL
+      - DB_USER=$DB_USER
+      - DB_HOST=$DB_HOST
+      - DB_NAME=$DB_NAME
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_PORT=$DB_PORT
+    depends_on:
+      - postgresdb
+    volumes:
+      - .:/usr/src/server
+      - ./uploads:/usr/uploads
+
+  react:
+    container_name: react-frontend
+    command:  sh -c "npm run dev"
+    depends_on:
+      - postgresdb
+      - api
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+    image: node-front-end
+    ports:
+      - $CLIENT_PORT:$CLIENT_PORT
+    environment:
+      - PORT=$CLIENT_PORT
+      - CLIENT_PORT=$CLIENT_PORT
+      - NEXT_PUBLIC_CLIENT_HOST_URL=$NEXT_PUBLIC_CLIENT_HOST_URL
+      - NEXT_PUBLIC_SERVER_HOST_URL=$NEXT_PUBLIC_SERVER_HOST_URL
+
+volumes:
+  data: {}
