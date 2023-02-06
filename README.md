@@ -3,7 +3,7 @@
 
 This is a web app to convert documents to images (PNGs). As of now, only PDF files allowed. The project is comprised of multiple docker services, simultaneously working together through docker compose.
 
-When the Home component first loads it shows the app layout and attempts to fetch the available stored documents at ``curl -X GET http://localhost:5005/ `` The document pages are using an incremental name nomenclature exposed through the ``static`` path i.e. if the file name is "my pdf.pdf" and has 3 pages, the available images would be located at :
+When the Home component first loads it shows the app layout and attempts to fetch the available stored documents at ``curl -X GET http://localhost:5005/ `` . The document pages are using an incremental name nomenclature exposed through the ``static`` path i.e. if the file name is "my pdf.pdf" and has 3 pages, the available images would be located at :
 
 1. http://localhost:5005/static/my_pdf.1.png 
 2. http://localhost:5005/static/my_pdf.2.png
