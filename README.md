@@ -19,7 +19,7 @@ The primary reason to use docker compose was to properly have **graphicsmagick**
 
 ## Technology used
 
-**Backend**: Node.js, Typescript, TypeORM, PostgreSQL.
+**Backend**: Node.js, Typescript, TypeORM, PostgreSQL. <br>
 **Frontend**: Next.js + SSR,  Typescript, TailwindCSS, CSS Grid, FlexBox, Jest, RTL.
 
 ## Instructions to RUN
