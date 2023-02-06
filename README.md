@@ -26,7 +26,7 @@ The primary reason to use docker compose was to properly have **graphicsmagick**
 
 1. Edit the **env.example** file accordingly
 2. Move to **./server** and run ``npm install``
-3. Run  ``docker compose up``
+3. Run head back to root directory and do ``docker compose up``
 
 ## Instructions to Test
 
