@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export const useScrollBottom = () => {
-    const [elId, setElId] = useState('')
+    const [elId, setElId] = useState('file-list')
 
     setTimeout(() => {
         if (typeof document !== 'undefined') {

@@ -15,7 +15,7 @@ function UploadedFileItem({
 }: UploadedFileItemProps) {
     return (
         <li
-            data-testid="file-list-item" 
+            data-testid="file-list-item"
             onClick={selectFile}
             data-id={itemId}
             className={`border-slate-200 border-2 active:bg-sky-300 active:text-white ${

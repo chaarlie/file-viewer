@@ -16,7 +16,10 @@ const Home: NextPage<{ fileDocumentList: FileDocument[] }> = ({
     const [fileDocuments, setFileDocuments] =
         useState<FileDocument[]>(fileDocumentList)
     return (
-        <div  data-testid="home-container" className="bg-slate-50 p-5 bg-gradient-to-t from-slate-50 to-slate-0 mx-auto bg-white rounded-xl shadow-md overflow-hidden max-w-[90%]  lg:h-screen  h-full">
+        <div
+            data-testid="home-container"
+            className="bg-slate-50 p-5 bg-gradient-to-t from-slate-50 to-slate-0 mx-auto bg-white rounded-xl shadow-md overflow-hidden max-w-[90%]  lg:h-screen  h-full"
+        >
             <div className="flex-col">
                 <Carousel currentFile={currentFile} />
                 <div className="mt-10">

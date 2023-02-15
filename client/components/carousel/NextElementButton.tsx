@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { memo, MouseEventHandler } from 'react'
 
 interface NextElementButtonProps {
     handleNextElementClick: MouseEventHandler<HTMLButtonElement>
@@ -15,4 +15,4 @@ function NextElementButton({ handleNextElementClick }: NextElementButtonProps) {
     )
 }
 
-export default NextElementButton
+export default memo(NextElementButton)
