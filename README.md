@@ -11,11 +11,6 @@ When the Home component first loads it shows the app layout and attempts to fetc
 
 The primary reason to use docker compose was to properly have **graphicsmagick** working through different environments.
 
-<br>
-
-> ![Sample screenshot](/assets/screenshot.png)
-
-<br>
 
 ## Technology used
 
