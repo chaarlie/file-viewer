@@ -9,6 +9,12 @@ module.exports = {
               port: '5006',
               pathname: '/static/**',
             },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '5005',
+                pathname: '/static/**',
+              },
         ],
     }
    

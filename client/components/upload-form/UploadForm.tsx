@@ -1,6 +1,7 @@
 import React, {
     ChangeEvent,
     Dispatch,
+    memo,
     MouseEvent,
     useEffect,
     useRef,
@@ -82,6 +83,8 @@ function UploadForm({ setFileDocuments }: UploadFormProps) {
                 }
             } catch (error) {
                 console.error(error)
+
+                setUploadStatusMsg(UploadMessage.UPLOAD_FORM_SELECT_FILE)
             }
         }
     }
@@ -169,4 +172,4 @@ function UploadForm({ setFileDocuments }: UploadFormProps) {
     )
 }
 
-export default UploadForm
+export default memo(UploadForm)

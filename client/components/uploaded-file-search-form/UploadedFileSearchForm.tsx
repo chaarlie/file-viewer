@@ -1,10 +1,9 @@
-import { MouseEvent } from 'react'
+import { memo, MouseEvent } from 'react'
 
 function UploadedFileSearchForm() {
     const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
     }
-
     return (
         <form className="h-[3.5rem] grid grid-cols-5 gap-3">
             <input
@@ -23,4 +22,4 @@ function UploadedFileSearchForm() {
     )
 }
 
-export default UploadedFileSearchForm
+export default memo(UploadedFileSearchForm)

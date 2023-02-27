@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import classNames from 'classnames'
 
@@ -33,9 +33,9 @@ function Carousel({ currentFile }: CarouselProps) {
         }
     }
 
-    const handleNextElementClick = () => {
+    const handleNextElementClick = useCallback(() => {
         displayNextElement()
-    }
+    }, [])
 
     useEffect(() => {
         const images = currentFile
@@ -76,7 +76,10 @@ function Carousel({ currentFile }: CarouselProps) {
 
     return (
         <div className="overflow-x">
-            <div data-testid="carousel" className="border-slate-100  border-solid  pl-10 pr-10 last:pl-0 mt-2 place-content-end flex gap-10 ">
+            <div
+                data-testid="carousel"
+                className="border-slate-100  border-solid  pl-10 pr-10 last:pl-0 mt-2 place-content-end flex gap-10 "
+            >
                 {/* TODO: change to factory button  */}
                 <NextElementButton
                     handleNextElementClick={handleNextElementClick}

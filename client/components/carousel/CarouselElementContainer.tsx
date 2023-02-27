@@ -21,7 +21,10 @@ function CarouselElementContainer({ children }: CarouselElementContainerProps) {
     }
 
     return (
-        <div data-testid="carousel-item" className="bg-slate-100 shadow-2xl w-40 h-40 rounded relative">
+        <div
+            data-testid="carousel-item"
+            className="bg-slate-100 shadow-2xl w-40 h-40 rounded relative"
+        >
             <button
                 onClick={() => setIsOpen(!modalIsOpen)}
                 className="bg-sky-300 hover:bg-sky-400  active:bg-sky-500 block active:mt-[0.5px] absolute  p-0.5 text-xs rounded text-white  left-[calc(100%-2rem)]"
