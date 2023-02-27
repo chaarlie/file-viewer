@@ -52,7 +52,7 @@ function UploadForm({ setFileDocuments }: UploadFormProps) {
             fileToUpload.append('file', selectedFile)
 
             try {
-                const uploadResponse = await axios.put(
+                const uploadResponse = await axios.post(
                     String(process.env.NEXT_PUBLIC_CLIENT_HOST_URL),
                     fileToUpload,
                     config,

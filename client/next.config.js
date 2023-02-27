@@ -5,8 +5,8 @@ module.exports = {
         remotePatterns: [
             {
               protocol: 'http',
-              hostname: 'api',
-              port: '5005',
+              hostname: 'backend-host',
+              port: '5006',
               pathname: '/static/**',
             },
         ],

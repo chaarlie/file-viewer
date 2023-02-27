@@ -12,10 +12,12 @@ services:
       - POSTGRES_DB=$DB_NAME
 
   api:
-    container_name: api
+    container_name: backend-host
     restart: always
-    build: ./server
-    command:  sh -c "apk add --no-cache ghostscript && apk add --no-cache graphicsmagick && cd ./server && npm run dev"
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    image:  file-viewer-backend
     ports:
       - $SERVER_PORT:$SERVER_PORT
     environment:
@@ -29,19 +31,14 @@ services:
     depends_on:
       - postgresdb
     volumes:
-      - .:/usr/src/server
-      - ./uploads:/usr/uploads
+      - ./uploads:/usr/server/uploads
 
   react:
-    container_name: react-frontend
-    command:  sh -c "npm run dev"
-    depends_on:
-      - postgresdb
-      - api
+    container_name: frontend-host
     build:
       context: ./client/
       dockerfile: Dockerfile
-    image: node-front-end
+    image: file-viewer-frontend
     ports:
       - $CLIENT_PORT:$CLIENT_PORT
     environment:

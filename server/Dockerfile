@@ -1,12 +1,15 @@
 FROM node:lts-alpine
 
-WORKDIR /usr/src/server
+WORKDIR /usr/server
 
-COPY ["package.json", "package-lock.json", "tsconfig.json", "./"]
+EXPOSE  5006
 
+COPY package.json  package-lock.json tsconfig.json ./
 COPY ./src ./src
 
 RUN npm install
 
-CMD npm run dev
+RUN sh -c "apk add --no-cache ghostscript && apk add --no-cache graphicsmagick"
+
+CMD npm start
 
